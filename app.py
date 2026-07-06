@@ -123,4 +123,13 @@ def dashboard():
     )
 
 if __name__ == "__main__":
+    import threading
+    import webbrowser
+
+    def otvori_browser():
+        import time
+        time.sleep(1.5)
+        webbrowser.open("http://localhost:5000")
+
+    threading.Thread(target=otvori_browser).start()
     app.run(host="0.0.0.0", port=config.PORT, debug=False)
